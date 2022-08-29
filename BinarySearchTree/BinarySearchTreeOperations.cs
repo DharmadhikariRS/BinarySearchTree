@@ -85,5 +85,32 @@ namespace BinarySearchTree
                 
             }
         }
+        public void SearchElement(K Element)
+        {
+            BinarySearchTreeNode<K> Temp = Root;
+
+            while (Temp.Right != null || Temp.Left != null)
+            {
+                if ((dynamic)Element < Temp.Key)
+                {
+                    Temp = Temp.Left;
+                }
+                else
+                {
+                    Temp = Temp.Right;
+                }
+                if ((dynamic)Element == Temp.Key)
+                {
+                    Console.WriteLine("Element is found= " + Temp.Key);
+                    break;
+                }
+
+            }
+            if (Temp.Right == null && Temp.Left == null && Temp.Key != (dynamic)Element)
+            {
+                Console.WriteLine("Element is Not found= " + Element);
+            }
+
+        }
     }
 }
